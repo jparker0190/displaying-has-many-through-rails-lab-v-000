@@ -17,11 +17,15 @@ ActiveRecord::Schema.define(version: 20180703004655) do
     t.datetime "appointment_datetime"
     t.integer  "patient_id"
     t.integer  "doctor_id"
+    t.string   "patient"
+    t.string   "doctor"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
+  add_index "appointments", ["doctor"], name: "index_appointments_on_doctor"
   add_index "appointments", ["doctor_id"], name: "index_appointments_on_doctor_id"
+  add_index "appointments", ["patient"], name: "index_appointments_on_patient"
   add_index "appointments", ["patient_id"], name: "index_appointments_on_patient_id"
 
   create_table "doctors", force: :cascade do |t|

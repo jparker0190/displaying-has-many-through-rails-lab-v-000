@@ -4,6 +4,8 @@ class CreateAppointments < ActiveRecord::Migration
       t.datetime :appointment_datetime
       t.belongs_to :patient, index: true, foreign_key: true
       t.belongs_to :doctor, index: true, foreign_key: true
+      t.string :patient, index: true, foreign_key: true
+      t.string :doctor, index: true, foreign_key: true
 
       t.timestamps null: false
     end
